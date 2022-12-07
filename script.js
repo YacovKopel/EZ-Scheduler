@@ -1,3 +1,38 @@
+var past=$(".past");
+var present=$(".present");
+var future = $(".future")
+var six= $("#hour-6");
+var seven= $("#hour-7");
+var eight= $("#hour-8");
+var nine= $("#hour-9");
+var ten= $("#hour-10");
+var eleven= $("#hour-11");
+var twelve= $("#hour-12");
+var thirteen= $("#hour-13");
+var fourteen= $("#hour-14");
+var fifteen= $("#hour-15");
+var sixteen= $("#hour-16");
+var seventeen= $("#hour-17");
+alltimes=[six, seven, eight, nine ,ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen]
+var container= $(".container-lg")
+
+var time = dayjs().format('hA');
+  $('#time').text(time);
+  var divarr=[]
+  for (let i = 0; i < alltimes.length; i++) {
+  var divOPs= alltimes[i];
+  var timeOPs = alltimes[i].text().trim();
+  divarr.push(divOPs)
+ 
+  if (time==timeOPs){
+    divOPs.addClass("present")
+    console.log("lit")
+   }else if (time!==timeOPs){
+    divOPs.addClass("past")
+   }
+  
+  }
+   console.log(time)
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
@@ -14,8 +49,7 @@ $(function () {
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
-  var time = dayjs().format('H A');
-  $('#time').text(time);
+  
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
