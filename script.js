@@ -69,7 +69,9 @@ for (var index = 0; index < numberTimeArray.length; index++) {
   if (time > number) alltimes[index].addClass('past');
 }
 function saveInput() {
-  console.log($(this).siblings('.description').val());
+  var userInput = $(this).siblings('.description').val();
+  var key = $(this).parent().attr('id');
+  localStorage.setItem(key, userInput);
 }
 $('.saveBtn').on('click', saveInput);
 // function saveInput(event){
