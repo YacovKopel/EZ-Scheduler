@@ -1,7 +1,3 @@
-var past=$(".past");
-var present=$(".present");
-var future = $(".future")
-// var saveBtn= $(".saveBtn")
 var six= $("#hour-6");
 var seven= $("#hour-7");
 var eight= $("#hour-8");
@@ -74,6 +70,15 @@ function saveInput() {
   localStorage.setItem(key, userInput);
 }
 $('.saveBtn').on('click', saveInput);
+
+function renderInput(){
+  for (let i = 0; i < alltimes.length; i++) {
+    var key = alltimes[i].attr('id');
+    var value = localStorage.getItem(key);
+    console.log (alltimes[i])
+    
+  }
+}
 // function saveInput(event){
 // event.preventDefault();
 // localStorage.setItem($(event.target).attr('id'),
@@ -104,3 +109,4 @@ $(function () {
   var currentDay = dayjs().format('dddd[ - ] MMM DD, YYYY');
 $('#currentDay').text(currentDay);
 });
+ renderInput()
