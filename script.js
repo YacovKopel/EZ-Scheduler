@@ -15,23 +15,60 @@ var sixteen= $("#hour-16");
 var seventeen= $("#hour-17");
 alltimes=[six, seven, eight, nine ,ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen]
 var container= $(".container-lg")
-
-var time = dayjs().format('hA');
+var rows = $(".row")
+var time = dayjs().format('HA');
   $('#time').text(time);
+// rows.each(function(){
+//   var rowHour=$(this).attr('row time-block')
+//   console.log(rows)
+//   console.log(rowHour)
+//   if (rowHour<time){
+//     $(this).addClass("present")
+//   }else if(rowHour===time){
+//     $(this).addClass("pass")
+//   }else{
+//     $(this).addClass("present")}
+// });
+
   var divarr=[]
+
   for (let i = 0; i < alltimes.length; i++) {
-  var divOPs= alltimes[i];
   var timeOPs = alltimes[i].text().trim();
-  divarr.push(divOPs)
- 
-  if (time==timeOPs){
-    divOPs.addClass("present")
-    console.log("lit")
-   }else if (time!==timeOPs){
-    divOPs.addClass("past")
-   }
+  divarr.push(timeOPs)
+  var presentTime = time==divarr[i]
+  var pastTime = divarr[i]<presentTime
+  var futureTime = divarr[i]>presentTime
+  console.log(divarr[i])
+  var sliceNum = (presentTime=(i-1))}
+  if (presentTime){
+    alltimes[sliceNum].addClass("present")
+    pastT= divarr.slice(0,sliceNum)
+    futureT= divarr.slice(sliceNum+1, 12)
+    for (let i = 0; i < pastT.length; i++) {
+      alltimes[i].addClass("past")
+    }
+    for (let i = 0; i < futureT.length; i++) {
+      alltimes[i].addClass("future");
+      
+    }}
   
-  }
+
+  //   alltimes[i].addClass("future")
+  //  }else if(futureTime==false){
+  //   alltimes[i].addClass("past")
+  //  }}
+  
+  //  console.log((time > (divarr[i].text().trim())))
+  //  console.log((time < (divarr[i].text().trim())))
+  //  console.log(divarr[i].text().trim())
+  console.log(futureT.length)
+  console.log(pastT)
+  console.log(futureT)
+  console.log(presentTime)
+console.log(pastTime)
+console.log(futureTime)
+
+console.log(divarr)
    console.log(time)
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
