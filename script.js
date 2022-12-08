@@ -75,7 +75,7 @@ function renderInput(){
   for (let i = 0; i < alltimes.length; i++) {
     var key = alltimes[i].attr('id');
     var value = localStorage.getItem(key);
-    console.log (alltimes[i])
+    alltimes[i].children('.description').text(value)
     
   }
 }
