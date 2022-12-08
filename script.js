@@ -1,6 +1,7 @@
 var past=$(".past");
 var present=$(".present");
 var future = $(".future")
+// var saveBtn= $(".saveBtn")
 var six= $("#hour-6");
 var seven= $("#hour-7");
 var eight= $("#hour-8");
@@ -67,7 +68,18 @@ for (var index = 0; index < numberTimeArray.length; index++) {
   if (time < number) alltimes[index].addClass('future');
   if (time > number) alltimes[index].addClass('past');
 }
+function saveInput() {
+  console.log($(this).siblings('.description').val());
+}
+$('.saveBtn').on('click', saveInput);
+// function saveInput(event){
+// event.preventDefault();
+// localStorage.setItem($(event.target).attr('id'),
+// $(event.target).siblings('textarea')
+// }
 
+//   localStorage.setItem("studentGrade", JSON.stringify(studentGrade));
+// });
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
@@ -79,11 +91,7 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
+
   
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
