@@ -13,63 +13,52 @@ var fourteen= $("#hour-14");
 var fifteen= $("#hour-15");
 var sixteen= $("#hour-16");
 var seventeen= $("#hour-17");
-alltimes=[six, seven, eight, nine ,ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen]
+var alltimes = [
+  six,
+  seven,
+  eight,
+  nine,
+  ten,
+  eleven,
+  twelve,
+  thirteen,
+  fourteen,
+  fifteen,
+  sixteen,
+  seventeen,
+];
+
+var alltimesNumber = [
+  six.text().trim(),
+  seven.text().trim(),
+  eight.text().trim(),
+  nine.text().trim(),
+  ten.text().trim(),
+  eleven.text().trim(),
+  twelve.text().trim(),
+  thirteen.text().trim(),
+  fourteen.text().trim(),
+  fifteen.text().trim(),
+  sixteen.text().trim(),
+  seventeen.text().trim(),
+];
+
 var container= $(".container-lg")
-var rows = $(".row")
+
 var time = dayjs().format('HA');
   $('#time').text(time);
-// rows.each(function(){
-//   var rowHour=$(this).attr('row time-block')
-//   console.log(rows)
-//   console.log(rowHour)
-//   if (rowHour<time){
-//     $(this).addClass("present")
-//   }else if(rowHour===time){
-//     $(this).addClass("pass")
-//   }else{
-//     $(this).addClass("present")}
-// });
 
-  var divarr=[]
+  var numberTimeArray = [];
 
-  for (let i = 0; i < alltimes.length; i++) {
-  var timeOPs = alltimes[i].text().trim();
-  divarr.push(timeOPs)
-  var presentTime = time==divarr[i]
-  var pastTime = divarr[i]<presentTime
-  var futureTime = divarr[i]>presentTime
-  console.log(divarr[i])
-  var sliceNum = (presentTime=(i-1))}
-  if (presentTime){
-    alltimes[sliceNum].addClass("present")
-    pastT= divarr.slice(0,sliceNum)
-    futureT= divarr.slice(sliceNum+1, 12)
-    for (let i = 0; i < pastT.length; i++) {
-      alltimes[i].addClass("past")
-    }
-    for (let i = 0; i < futureT.length; i++) {
-      alltimes[i].addClass("future");
-      
-    }}
-  
+for (var i = 0; i < alltimesNumber.length; i++) {
+  let element = alltimesNumber[x];
+  if (element.length === 3) numberTimeArray.push(element[0]);
+  if (element.length === 4) numberTimeArray.push(element[0] + element[1]);
+}
 
-  //   alltimes[i].addClass("future")
-  //  }else if(futureTime==false){
-  //   alltimes[i].addClass("past")
-  //  }}
-  
-  //  console.log((time > (divarr[i].text().trim())))
-  //  console.log((time < (divarr[i].text().trim())))
-  //  console.log(divarr[i].text().trim())
-  console.log(futureT.length)
-  console.log(pastT)
-  console.log(futureT)
-  console.log(presentTime)
-console.log(pastTime)
-console.log(futureTime)
+if (time.length === 3) time = time[0];
+if (time.length === 4) time = time[0] + time[1];
 
-console.log(divarr)
-   console.log(time)
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
