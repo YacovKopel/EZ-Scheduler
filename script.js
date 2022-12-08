@@ -51,13 +51,22 @@ var time = dayjs().format('HA');
   var numberTimeArray = [];
 
 for (var i = 0; i < alltimesNumber.length; i++) {
-  let element = alltimesNumber[x];
+  let element = alltimesNumber[i];
   if (element.length === 3) numberTimeArray.push(element[0]);
   if (element.length === 4) numberTimeArray.push(element[0] + element[1]);
 }
 
-if (time.length === 3) time = time[0];
-if (time.length === 4) time = time[0] + time[1];
+// if (time.length === 3) time = time[0];
+// if (time.length === 4) time = time[0] + time[1];
+
+time = parseInt(time);
+
+for (var index = 0; index < numberTimeArray.length; index++) {
+  let number = parseInt(numberTimeArray[index]);
+  if (time === number) alltimes[index].addClass('present');
+  if (time < number) alltimes[index].addClass('future');
+  if (time > number) alltimes[index].addClass('past');
+}
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
